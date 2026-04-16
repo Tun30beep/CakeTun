@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cake Galaxy</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #111;
+            color: white;
+            margin: 0;
+        }
+
+        header {
+            background: #ff4d6d;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #1c1c1c;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 8px;
+            margin: 5px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .add { background: #00c853; color: white; }
+        .edit { background: orange; }
+        .delete { background: red; color: white; }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🍰 Cake Galaxy</h1>
+</header>
+
+<div class="container">
+    <a href="/add"><button class="add">+ Add Cake</button></a>
+
+    <div class="grid">
+        {% for cake in cakes %}
+        <div class="card">
+            <img src="{{ cake.image }}">
+            <h3>{{ cake.name }}</h3>
+            <p>{{ cake.price }} ฿</p>
+            <p>Stock: {{ cake.stock }}</p>
+
+            <a href="/edit/{{ cake.id }}"><button class="edit">Edit</button></a>
+            <a href="/delete/{{ cake.id }}"><button class="delete">Delete</button></a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>
