@@ -1,1 +1,4 @@
-# CakeTun
+- Flask Cake Website
+- CRUD System
+- SQLite Database
+- Deploy on PythonAnywhere
